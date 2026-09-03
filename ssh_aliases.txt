@@ -1,0 +1,60 @@
+# vdt-srv6-lab (mgmt IP aliases)
+Host fm-pe-9
+  HostName 198.18.128.109
+  User cisco
+
+Host fm-pe-10
+  HostName 198.18.128.110
+  User cisco
+
+Host fm-pe-11
+  HostName 198.18.128.111
+  User cisco
+
+Host fm-pe-12
+  HostName 198.18.128.112
+  User cisco
+
+Host vdt-ia-1
+  HostName 198.18.128.101
+  User cisco
+
+Host vdt-ia-2
+  HostName 198.18.128.102
+  User cisco
+
+Host vdt-ia-3
+  HostName 198.18.128.103
+  User cisco
+
+Host vdt-ia-4
+  HostName 198.18.128.104
+  User cisco
+
+Host vdt-pe-5
+  HostName 198.18.128.105
+  User cisco
+
+Host vdt-pe-6
+  HostName 198.18.128.106
+  User cisco
+
+Host vdt-pe-7
+  HostName 198.18.128.107
+  User cisco
+
+Host vdt-pe-8
+  HostName 198.18.128.108
+  User cisco
+
+Host vdt-rr-13
+  HostName 198.18.128.113
+  User cisco
+
+Host fm-rr-14
+  HostName 198.18.128.114
+  User cisco
+
+Host fm-rr-15
+  HostName 198.18.128.115
+  User cisco

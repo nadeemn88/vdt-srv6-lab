@@ -1,0 +1,20 @@
+[
+  { "hostname": "fm-pe-10",  "mngt_ip": "198.18.128.110" },
+  { "hostname": "fm-pe-11",  "mngt_ip": "198.18.128.111" },
+  { "hostname": "fm-pe-12",  "mngt_ip": "198.18.128.112" },
+  { "hostname": "fm-pe-16",  "mngt_ip": "198.18.128.116" },
+  { "hostname": "fm-pe-17",  "mngt_ip": "198.18.128.117" },
+  { "hostname": "fm-pe-9",   "mngt_ip": "198.18.128.109" },
+  { "hostname": "fm-rr-14",  "mngt_ip": "198.18.128.114" },
+  { "hostname": "fm-rr-15",  "mngt_ip": "198.18.128.115" },
+  { "hostname": "vdt-ia-1",  "mngt_ip": "198.18.128.101" },
+  { "hostname": "vdt-ia-2",  "mngt_ip": "198.18.128.102" },
+  { "hostname": "vdt-ia-3",  "mngt_ip": "198.18.128.103" },
+  { "hostname": "vdt-ia-4",  "mngt_ip": "198.18.128.104" },
+  { "hostname": "vdt-pe-5",  "mngt_ip": "198.18.128.105" },
+  { "hostname": "vdt-pe-6",  "mngt_ip": "198.18.128.106" },
+  { "hostname": "vdt-pe-7",  "mngt_ip": "198.18.128.107" },
+  { "hostname": "vdt-pe-8",  "mngt_ip": "198.18.128.108" },
+  { "hostname": "vdt-rr-13", "mngt_ip": "198.18.128.113" },
+  { "hostname": "vdt-rr-18", "mngt_ip": "198.18.128.118" }
+]

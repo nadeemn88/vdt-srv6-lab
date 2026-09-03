@@ -1,0 +1,150 @@
+name: vdt-srv6-lab
+
+mgmt:
+  network: mgmt_intf
+  bridge: mgmt_bridge
+  ipv4-subnet: 198.18.128.0/18
+  ipv4-gw: 198.18.130.5
+
+
+topology:
+  kinds:
+    c8000:
+      kind: cisco_c8000
+      image: 8201-32fh:25.2.1
+
+    xrd:
+      kind: cisco_xrd
+      image: ios-xr/xrd-control-plane:25.2.1
+
+  nodes:
+    vdt-ia-1:
+      kind: xrd
+      mgmt-ipv4: 198.18.128.101
+      startup-config: xrd-config/vdt-ia-1.cfg
+
+    vdt-ia-2:
+      kind: xrd
+      mgmt-ipv4: 198.18.128.102
+      startup-config: xrd-config/vdt-ia-2.cfg
+
+    vdt-ia-3:
+      kind: c8000
+      mgmt-ipv4: 198.18.128.103
+      startup-config: xrd-config/vdt-ia-3.cfg
+
+    vdt-ia-4:
+      kind: c8000
+      mgmt-ipv4: 198.18.128.104
+      startup-config: xrd-config/vdt-ia-4.cfg
+
+    vdt-pe-5:
+      kind: xrd
+      mgmt-ipv4: 198.18.128.105
+      startup-config: xrd-config/vdt-pe-5.cfg
+
+    vdt-pe-6:
+      kind: xrd
+      mgmt-ipv4: 198.18.128.106
+      startup-config: xrd-config/vdt-pe-6.cfg
+
+    vdt-pe-7:
+      kind: c8000
+      mgmt-ipv4: 198.18.128.107
+      startup-config: xrd-config/vdt-pe-7.cfg
+
+    vdt-pe-8:
+      kind: c8000
+      mgmt-ipv4: 198.18.128.108
+      startup-config: xrd-config/vdt-pe-8.cfg
+
+    vdt-rr-13:
+      kind: xrd
+      mgmt-ipv4: 198.18.128.113
+      startup-config: xrd-config/vdt-rr-13.cfg
+
+    fm-pe-9:
+      kind: xrd
+      mgmt-ipv4: 198.18.128.109
+      startup-config: xrd-config/fm-pe-9.cfg
+
+    fm-pe-10:
+      kind: xrd
+      mgmt-ipv4: 198.18.128.110
+      startup-config: xrd-config/fm-pe-10.cfg
+
+    fm-pe-11:
+      kind: xrd
+      mgmt-ipv4: 198.18.128.111
+      startup-config: xrd-config/fm-pe-11.cfg
+
+    fm-pe-12:
+      kind: xrd
+      mgmt-ipv4: 198.18.128.112
+      startup-config: xrd-config/fm-pe-12.cfg
+
+    fm-rr-14:
+      kind: xrd
+      mgmt-ipv4: 198.18.128.114
+      startup-config: xrd-config/fm-rr-14.cfg
+
+    fm-rr-15:
+      kind: xrd
+      mgmt-ipv4: 198.18.128.115
+      startup-config: xrd-config/fm-rr-15.cfg
+
+    fm-pe-16:
+    # fm-cal-pe1
+      kind: xrd
+      mgmt-ipv4: 198.18.128.116
+      startup-config: xrd-config/fm-pe-16.cfg
+
+    fm-pe-17:
+    # fm-cal-pe2
+      kind: xrd
+      mgmt-ipv4: 198.18.128.117
+      startup-config: xrd-config/fm-pe-17.cfg
+
+    vdt-rr-18:
+    # vdt-rr-3
+      kind: xrd
+      mgmt-ipv4: 198.18.128.118
+      startup-config: xrd-config/vdt-rr-18.cfg
+
+
+  links:
+    - endpoints: ["vdt-ia-1:Gi0-0-0-0", "vdt-ia-2:Gi0-0-0-0"]
+    - endpoints: ["vdt-ia-1:Gi0-0-0-1", "vdt-ia-3:FH0_0_0_1"]
+    - endpoints: ["vdt-ia-2:Gi0-0-0-1", "vdt-ia-4:FH0_0_0_1"]
+    - endpoints: ["vdt-ia-3:FH0_0_0_0", "vdt-ia-4:FH0_0_0_0"]
+    - endpoints: ["vdt-pe-5:Gi0-0-0-0", "vdt-pe-6:Gi0-0-0-0"]
+    - endpoints: ["vdt-pe-5:Gi0-0-0-2", "vdt-ia-2:Gi0-0-0-2"]
+    - endpoints: ["vdt-pe-6:Gi0-0-0-2", "vdt-ia-1:Gi0-0-0-2"]
+    - endpoints: ["vdt-pe-7:FH0_0_0_0", "vdt-pe-8:FH0_0_0_0"]
+    - endpoints: ["vdt-pe-7:FH0_0_0_2", "vdt-ia-4:FH0_0_0_2"]
+    - endpoints: ["vdt-pe-8:FH0_0_0_2", "vdt-ia-3:FH0_0_0_2"]
+    - endpoints: ["vdt-pe-5:Gi0-0-0-3", "vdt-rr-13:Gi0-0-0-0"]
+    - endpoints: ["vdt-pe-6:Gi0-0-0-3", "vdt-rr-13:Gi0-0-0-1"]
+    - endpoints: ["vdt-pe-7:FH0_0_0_1", "fm-pe-11:Gi0-0-0-1"]
+
+    - endpoints: ["fm-pe-9:Gi0-0-0-3", "fm-pe-11:Gi0-0-0-3"]
+    - endpoints: ["fm-pe-9:Gi0-0-0-0", "fm-pe-10:Gi0-0-0-0"]
+    - endpoints: ["fm-pe-9:Gi0-0-0-1", "vdt-pe-5:Gi0-0-0-1"]
+
+    - endpoints: ["fm-pe-10:Gi0-0-0-1", "vdt-pe-6:Gi0-0-0-1"]
+    - endpoints: ["fm-pe-10:Gi0-0-0-3", "fm-pe-12:Gi0-0-0-3"]
+    - endpoints: ["fm-pe-10:Gi0-0-0-2", "fm-rr-14:Gi0-0-0-2"]
+
+    - endpoints: ["fm-pe-11:Gi0-0-0-0", "fm-pe-12:Gi0-0-0-0"]
+
+    - endpoints: ["fm-pe-12:Gi0-0-0-1", "vdt-pe-8:FH0_0_0_1"]
+    - endpoints: ["fm-pe-12:Gi0-0-0-2", "fm-rr-15:Gi0-0-0-2"]
+
+    - endpoints: ["fm-pe-16:Gi0-0-0-0", "fm-pe-17:Gi0-0-0-0"]
+    - endpoints: ["fm-pe-16:Gi0-0-0-1", "fm-pe-11:Gi0-0-0-4"]
+    - endpoints: ["fm-pe-17:Gi0-0-0-1", "fm-pe-12:Gi0-0-0-4"]
+    - endpoints: ["fm-pe-17:Gi0-0-0-2", "fm-pe-9:Gi0-0-0-4"]
+    - endpoints: ["vdt-rr-18:Gi0-0-0-0", "vdt-ia-1:Gi0-0-0-3"]
+    - endpoints: ["vdt-rr-18:Gi0-0-0-1", "vdt-ia-2:Gi0-0-0-3"]
+    - endpoints: ["vdt-rr-18:Gi0-0-0-2", "vdt-ia-3:FH0_0_0_3"]
+    - endpoints: ["vdt-rr-18:Gi0-0-0-3", "vdt-ia-4:FH0_0_0_3"]
